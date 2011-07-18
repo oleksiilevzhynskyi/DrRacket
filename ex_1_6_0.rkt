@@ -19,6 +19,8 @@
       (sqrt-iter (improve guess x)
                  x)))
 
-(sqrt-iter 1 5.0)
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
 
-;Программа не работает, происходит переполнение памятиы
+(sqrt 5.0)
+
