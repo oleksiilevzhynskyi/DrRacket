@@ -1,15 +1,21 @@
 #lang racket
 
-; расчет эл-та из треуголника паскаля
-; левый нижний угол имеет координаты (1, 1)
+(define (f-recurs n)
+  (if (< n 3)
+      n
+      (+ (f-recurs (- n 1))
+         (f-recurs (- n 2))
+         (f-recurs (- n 3)))))
+;рекурсивно
+(f-recurs 5)
 
-(define (dec i)
-  (- i 1))
 
-(define (pascal x y)
-  (cond ((= x 1) 1)
-        ((= y 1) 1)
-        (else (+ (pascal (dec x) y) (pascal x (dec y))))))
+(define (f n)
+  (f-iter 2 1 0 n))
 
-(pascal 5 5)
-        
+(define (f-iter a b c count)
+  (if (= count 0)
+      c
+      (f-iter (+ a b c) a b (- count 1))))
+;итеративно
+(f 5)
