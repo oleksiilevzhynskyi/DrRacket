@@ -1,5 +1,7 @@
 #lang racket
 
+(require rackunit)
+
 (define (square x)
   (* x x))
 
@@ -24,3 +26,5 @@
   (sqrt-iter 1.0 1.1 x))
 
 (sqrt 0.04)
+
+(check-equal? (sqrt 0.04) 0.2)
